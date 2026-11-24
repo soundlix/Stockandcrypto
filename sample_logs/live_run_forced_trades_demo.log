@@ -1,0 +1,29 @@
+*** EDUCATIONAL PAPER TRADING ONLY - simulated trades with fake money. No real orders are placed. This is not financial advice. ***
+2026-11-23 16:35:34 CST INFO    paperbot.bot: EDUCATIONAL PAPER TRADING ONLY - simulated trades with fake money. No real orders are placed. This is not financial advice.
+2026-11-23 16:35:36 CST INFO    paperbot.data: Loaded 1504 historical 1m candles for BTC from binanceus (2026-11-22 21:31:00+00:00 -> 2026-11-23 22:34:00+00:00)
+2026-11-23 16:35:36 CST INFO    paperbot.model: [BTC] batch model trained on 1466 rows, hold-out accuracy 0.582 (base rate up=0.485)
+2026-11-23 16:35:37 CST INFO    paperbot.data: Loaded 1504 historical 1m candles for ETH from binanceus (2026-11-22 21:31:00+00:00 -> 2026-11-23 22:34:00+00:00)
+2026-11-23 16:35:37 CST INFO    paperbot.model: [ETH] batch model trained on 1466 rows, hold-out accuracy 0.605 (base rate up=0.476)
+2026-11-23 16:36:06 CST INFO    paperbot.sentiment: Fear & Greed index: 11 (Extreme Fear)
+2026-11-23 16:36:07 CST INFO    paperbot.sentiment: Fetched 92 news headlines
+2026-11-23 16:36:07 CST INFO    paperbot.broker: PAPER BUY  BTC qty=0.00073421 @ $61228.91 (spent $45.00, fee $0.0450) SL $61198.29 TP $61259.52 | score -0.127 >= -1.00, P(up)=0.467
+2026-11-23 16:36:07 CST INFO    paperbot.bot: [BTC] candle 16:35 CST close $61198.31 | RSI 42.2 | P(up) 0.467 (online 0.443 / batch 0.491) | AI -0.22 IND -0.21 SENT +0.39 => score -0.127 BUY (score -0.127 >= -1.00, P(up)=0.467) | +1 online upd
+2026-11-23 16:36:08 CST INFO    paperbot.broker: PAPER BUY  ETH qty=0.02620069 @ $1714.64 (spent $44.97, fee $0.0450) SL $1713.61 TP $1715.67 | score +0.457 >= -1.00, P(up)=0.641
+2026-11-23 16:36:08 CST INFO    paperbot.bot: [ETH] candle 16:35 CST close $1713.78 | RSI 32.5 | P(up) 0.641 (online 0.483 / batch 0.800) | AI +0.94 IND -0.13 SENT +0.20 => score +0.457 BUY (score +0.457 >= -1.00, P(up)=0.641) | +1 online upd
+2026-11-23 16:36:08 CST INFO    paperbot.bot: PORTFOLIO equity $99.87 (-0.13%) | cash $10.03 | realized $+0.0000 | fees $0.0900 | trades 0 | open: BTC 0.000734@61228.91, ETH 0.026201@1714.64
+2026-11-23 16:37:06 CST INFO    paperbot.broker: PAPER SELL BTC qty=0.00073421 @ $61167.70 (proceeds $44.87, fee $0.0449) PnL $-0.1349 | stop-loss
+2026-11-23 16:37:06 CST INFO    paperbot.broker: PAPER BUY  BTC qty=0.00073310 @ $61197.65 (spent $44.91, fee $0.0449) SL $61167.05 TP $61228.25 | score -0.091 >= -1.00, P(up)=0.492
+2026-11-23 16:37:06 CST INFO    paperbot.bot: [BTC] candle 16:36 CST close $61167.07 | RSI 38.9 | P(up) 0.492 (online 0.477 / batch 0.507) | AI -0.06 IND -0.14 SENT +0.39 => score -0.091 BUY (score -0.091 >= -1.00, P(up)=0.492) | +1 online upd
+2026-11-23 16:37:06 CST INFO    paperbot.broker: PAPER SELL ETH qty=0.02620069 @ $1712.75 (proceeds $44.83, fee $0.0449) PnL $-0.1392 | stop-loss
+2026-11-23 16:37:06 CST INFO    paperbot.broker: PAPER BUY  ETH qty=0.02618233 @ $1711.14 (spent $44.85, fee $0.0448) SL $1710.03 TP $1712.24 | score +0.472 >= -1.00, P(up)=0.694
+2026-11-23 16:37:06 CST INFO    paperbot.bot: [ETH] candle 16:36 CST close $1710.28 | RSI 25.5 | P(up) 0.694 (online 0.477 / batch 0.911) | AI +1.00 IND -0.08 SENT +0.20 => score +0.472 BUY (score +0.472 >= -1.00, P(up)=0.694) | +1 online upd
+2026-11-23 16:37:06 CST INFO    paperbot.bot: PORTFOLIO equity $99.59 (-0.41%) | cash $9.97 | realized $-0.2741 | fees $0.2695 | trades 2 | open: BTC 0.000733@61197.65, ETH 0.026182@1711.14
+2026-11-23 16:38:06 CST INFO    paperbot.broker: PAPER SELL BTC qty=0.00073310 @ $61136.47 (proceeds $44.77, fee $0.0448) PnL $-0.1346 | stop-loss
+2026-11-23 16:38:06 CST INFO    paperbot.broker: PAPER BUY  BTC qty=0.00073116 @ $61191.82 (spent $44.79, fee $0.0448) SL $61161.22 TP $61222.42 | score +0.005 >= -1.00, P(up)=0.553
+2026-11-23 16:38:06 CST INFO    paperbot.bot: [BTC] candle 16:37 CST close $61161.24 | RSI 38.3 | P(up) 0.553 (online 0.497 / batch 0.610) | AI +0.36 IND -0.11 SENT +0.39 => score +0.005 BUY (score +0.005 >= -1.00, P(up)=0.553) | +1 online upd
+2026-11-23 16:38:06 CST INFO    paperbot.broker: PAPER SELL ETH qty=0.02618233 @ $1709.18 (proceeds $44.71, fee $0.0448) PnL $-0.1408 | stop-loss
+2026-11-23 16:38:06 CST INFO    paperbot.broker: PAPER BUY  ETH qty=0.02610377 @ $1711.55 (spent $44.72, fee $0.0447) SL $1710.47 TP $1712.62 | score +0.480 >= -1.00, P(up)=0.754
+2026-11-23 16:38:06 CST INFO    paperbot.bot: [ETH] candle 16:37 CST close $1710.69 | RSI 27.5 | P(up) 0.754 (online 0.587 / batch 0.921) | AI +1.00 IND -0.10 SENT +0.20 => score +0.480 BUY (score +0.480 >= -1.00, P(up)=0.754) | +1 online upd
+2026-11-23 16:38:06 CST INFO    paperbot.bot: PORTFOLIO equity $99.32 (-0.68%) | cash $9.94 | realized $-0.5495 | fees $0.4486 | trades 4 | open: BTC 0.000731@61191.82, ETH 0.026104@1711.55
+2026-11-23 16:38:06 CST INFO    paperbot.bot: Reached --minutes limit, stopping.
+2026-11-23 16:38:06 CST INFO    paperbot.bot: Stopped. State saved.

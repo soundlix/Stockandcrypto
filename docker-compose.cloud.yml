@@ -1,0 +1,74 @@
+# Cloud-only deployment. This additive file leaves the existing local Compose setup untouched.
+services:
+  crypto:
+    build: .
+    container_name: paperbot-cloud-crypto
+    restart: unless-stopped
+    init: true
+    volumes:
+      - ./data:/app/data
+      - ./deploy/cloud/healthcheck.py:/app/cloud_healthcheck.py:ro
+    command: ["python", "-m", "paperbot", "live"]
+    healthcheck:
+      test: ["CMD", "python", "/app/cloud_healthcheck.py", "crypto"]
+      interval: 30s
+      timeout: 10s
+      retries: 2
+      start_period: 10m
+    logging: &rotated_logs
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  stocks:
+    build: .
+    container_name: paperbot-cloud-stocks
+    restart: unless-stopped
+    init: true
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./deploy/cloud/healthcheck.py:/app/cloud_healthcheck.py:ro
+    command: ["python", "-m", "paperbot", "stocks"]
+    healthcheck:
+      test: ["CMD", "python", "/app/cloud_healthcheck.py", "stocks"]
+      interval: 30s
+      timeout: 10s
+      retries: 2
+      start_period: 5m
+    logging: *rotated_logs
+
+  dashboard:
+    build: .
+    container_name: paperbot-cloud-dashboard
+    restart: unless-stopped
+    init: true
+    environment:
+      PAPERBOT__MODEL__DIR: /tmp/paperbot-dashboard-models
+    volumes:
+      - ./data:/app/data:ro
+    ports:
+      - "127.0.0.1:8501:8501"
+    command:
+      - streamlit
+      - run
+      - dashboard/app.py
+      - --server.headless
+      - "true"
+      - --server.address
+      - 0.0.0.0
+      - --server.port
+      - "8501"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=4)"
+      interval: 30s
+      timeout: 10s
+      retries: 2
+      start_period: 2m
+    logging: *rotated_logs

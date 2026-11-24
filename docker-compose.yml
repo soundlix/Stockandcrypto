@@ -1,0 +1,16 @@
+# docker compose up -d --build     -> bot + dashboard (http://<server>:8501)
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: [.env]
+    volumes: ["./data:/app/data"]
+    command: ["python", "-m", "paperbot", "live"]
+  dashboard:
+    build: .
+    restart: unless-stopped
+    env_file: [.env]
+    volumes: ["./data:/app/data"]
+    ports: ["${DASHBOARD_BIND:-127.0.0.1}:8501:8501"]
+    command: ["streamlit", "run", "dashboard/app.py", "--server.headless", "true", "--server.address", "0.0.0.0", "--server.port", "8501"]
+    depends_on: [bot]

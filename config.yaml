@@ -1,0 +1,96 @@
+# ============================================================
+# Crypto PAPER-TRADING bot configuration
+# EDUCATIONAL SIMULATION ONLY - no real orders are ever placed.
+# Any key can be overridden by env var: PAPERBOT__SECTION__KEY=value
+#   e.g. PAPERBOT__PORTFOLIO__STARTING_BALANCE=250
+# ============================================================
+
+coins: [BTC, ETH]
+timeframe: 1m
+
+stocks:
+  starting_balance: 100.0   # separate simulated stock-mode account; not shared with crypto
+  enabled: true
+  symbols: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AVGO, JPM, WMT, LLY, V, MA, COST, NFLX, AMD, ORCL, XOM, UNH, KO, PEP, CRM, ADBE, INTC, DIS]
+  feed: iex                 # Alpaca's free IEX stock-data feed; single exchange feed
+  data_url: https://data.alpaca.markets
+  request_timeout_seconds: 15
+  poll_seconds: 60
+
+data:
+  # Public, key-less endpoints tried in order (all reachable from the US).
+  # Binance.US first: deep 1m history + fresh candles. Kraken only serves the last
+  # 720 1m candles; Coinbase Exchange public candles can lag 3-5 minutes.
+  exchanges: [binanceus, kraken, coinbaseexchange]
+  quote:            # quote currency used on each exchange
+    coinbaseexchange: USD
+    kraken: USD
+    binanceus: USDT
+  bootstrap_candles: 1500   # 1m candles of history loaded on startup (~25h)
+  max_history: 6000         # candles kept in memory per coin (~4 days)
+  poll_interval_seconds: 30 # check market and write status logs every 30 seconds
+  poll_delay_seconds: 6     # wait after each poll boundary for market data to settle
+  request_timeout_ms: 15000
+  max_staleness_seconds: 150  # newest closed candle older than this -> try next exchange
+
+portfolio:
+  starting_balance: 100.0   # simulated USD, shared across all coins
+  fee_rate: 0.001           # 0.1% per side (taker-like)
+  slippage_bps: 5           # 0.05% adverse fill
+  max_position_pct: 0.45    # max share of equity per coin
+  risk_per_trade_pct: 0.01  # equity risked per trade (distance to stop)
+  min_order_usd: 5.0
+  stop_loss_atr: 2.0        # stop = entry - k*ATR
+  take_profit_atr: 3.0      # take-profit = entry + k*ATR
+  min_stop_pct: 0.006       # floor on stop distance (0.6%)
+  min_take_profit_pct: 0.012  # floor on take-profit distance (1.2%) - must beat ~0.3% round-trip costs
+  max_drawdown_pct: 0.15    # halt new entries if equity falls 15% below peak
+  close_all_on_drawdown: true
+  daily_loss_limit_pct: 0.05  # pause trading after a 5% loss from UTC day's starting equity
+  close_all_on_daily_loss: true
+  cooldown_minutes: 15      # wait after exiting a coin before re-entering
+
+model:
+  horizon: 5                # predict direction over next N 1m candles
+  online_weight: 0.5        # blend of online (SGD) vs batch (gradient boosting)
+  batch_weight: 0.5
+  retrain_hours: 6          # periodic batch retrain
+  min_train_rows: 300
+  dir: data/models
+
+sentiment:
+  enabled: true
+  fear_greed_weight: 0.5
+  news_weight: 0.5
+  fear_greed_mode: contrarian   # contrarian (fear=bullish) or momentum
+  fear_greed_refresh_minutes: 60
+  news_refresh_minutes: 15
+  news_feeds:
+    - https://www.coindesk.com/arc/outboundfeeds/rss/
+    - https://cointelegraph.com/rss
+    - https://decrypt.co/feed
+
+strategy:
+  weights:                  # ensemble weights (normalised automatically)
+    ai: 0.5
+    indicators: 0.35
+    sentiment: 0.15
+  buy_threshold: 0.40       # (smoothed) ensemble score needed to open a long
+  sell_threshold: -0.25     # (smoothed) ensemble score that closes a long
+  min_ai_confidence: 0.55   # model P(up) must be >= this to buy
+  ai_scale: 0.3             # P(up)=0.65 maps to a full +1 AI score
+  score_smoothing: 5        # EMA span (candles) on the ensemble score, reduces churn
+  min_hold_minutes: 10      # minimum hold before a signal exit (stops still apply)
+  trend_filter: true        # only open longs when price is above its 50-candle EMA
+  allow_short: false        # spot-style long-only simulation
+
+storage:
+  data_dir: data
+  sqlite: data/paperbot.db
+  trades_csv: data/trades.csv
+  state_file: data/state.json
+
+logging:
+  level: INFO
+  file: data/bot.log
+  display_timezone: America/Chicago

@@ -1,0 +1,15 @@
+[Unit]
+Description=Crypto paper bot cloud services
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=@PROJECT@
+ExecStart=/usr/bin/docker compose -f @PROJECT@/docker-compose.cloud.yml up -d --remove-orphans
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

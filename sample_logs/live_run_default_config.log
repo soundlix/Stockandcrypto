@@ -1,0 +1,33 @@
+
+*** EDUCATIONAL PAPER TRADING ONLY - simulated trades with fake money. No real orders are placed. This is not financial advice. ***
+
+2026-11-23 16:25:18 CST INFO    paperbot.bot: EDUCATIONAL PAPER TRADING ONLY - simulated trades with fake money. No real orders are placed. This is not financial advice.
+2026-11-23 16:25:20 CST INFO    paperbot.data: Loaded 1504 historical 1m candles for BTC from binanceus (2026-11-22 21:21:00+00:00 -> 2026-11-23 22:24:00+00:00)
+2026-11-23 16:25:20 CST INFO    paperbot.model: [BTC] batch model trained on 1466 rows, hold-out accuracy 0.612 (base rate up=0.488)
+2026-11-23 16:25:21 CST INFO    paperbot.data: Loaded 1504 historical 1m candles for ETH from binanceus (2026-11-22 21:21:00+00:00 -> 2026-11-23 22:24:00+00:00)
+2026-11-23 16:25:21 CST INFO    paperbot.model: [ETH] batch model trained on 1466 rows, hold-out accuracy 0.609 (base rate up=0.477)
+2026-11-23 16:26:06 CST INFO    paperbot.sentiment: Fear & Greed index: 11 (Extreme Fear)
+2026-11-23 16:26:07 CST INFO    paperbot.sentiment: Fetched 92 news headlines
+2026-11-23 16:26:08 CST INFO    paperbot.bot: [BTC] candle 16:25 CST close $61300.82 | RSI 51.2 | P(up) 0.292 (online 0.306 / batch 0.278) | AI -1.00 IND +0.28 SENT +0.39 => score -0.343 HOLD (no edge) | +1 online upd
+2026-11-23 16:26:08 CST INFO    paperbot.bot: [ETH] candle 16:25 CST close $1718.97 | RSI 42.7 | P(up) 0.406 (online 0.363 / batch 0.450) | AI -0.62 IND +0.25 SENT +0.20 => score -0.193 HOLD (no edge) | +1 online upd
+2026-11-23 16:26:08 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:27:06 CST INFO    paperbot.bot: [BTC] candle 16:26 CST close $61237.44 | RSI 43.3 | P(up) 0.364 (online 0.321 / batch 0.408) | AI -0.90 IND +0.26 SENT +0.39 => score -0.330 HOLD (no edge) | +1 online upd
+2026-11-23 16:27:07 CST INFO    paperbot.bot: [ETH] candle 16:26 CST close $1716.36 | RSI 35.6 | P(up) 0.308 (online 0.389 / batch 0.227) | AI -1.00 IND +0.08 SENT +0.20 => score -0.276 HOLD (no edge) | +1 online upd
+2026-11-23 16:27:07 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:28:06 CST INFO    paperbot.bot: [BTC] candle 16:27 CST close $61255.99 | RSI 45.9 | P(up) 0.412 (online 0.405 / batch 0.419) | AI -0.59 IND +0.08 SENT +0.39 => score -0.289 HOLD (no edge) | +1 online upd
+2026-11-23 16:28:07 CST INFO    paperbot.bot: [ETH] candle 16:27 CST close $1717.14 | RSI 38.9 | P(up) 0.426 (online 0.516 / batch 0.336) | AI -0.49 IND -0.08 SENT +0.20 => score -0.265 HOLD (no edge) | +1 online upd
+2026-11-23 16:28:07 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:29:06 CST INFO    paperbot.bot: [BTC] candle 16:28 CST close $61268.81 | RSI 47.7 | P(up) 0.357 (online 0.357 / batch 0.357) | AI -0.95 IND -0.02 SENT +0.39 => score -0.334 HOLD (no edge) | +1 online upd
+2026-11-23 16:29:06 CST INFO    paperbot.bot: [ETH] candle 16:28 CST close $1718.15 | RSI 42.9 | P(up) 0.415 (online 0.460 / batch 0.371) | AI -0.57 IND -0.24 SENT +0.20 => score -0.289 HOLD (no edge) | +1 online upd
+2026-11-23 16:29:06 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:30:06 CST INFO    paperbot.bot: [BTC] candle 16:29 CST close $61225.60 | RSI 42.5 | P(up) 0.644 (online 0.512 / batch 0.776) | AI +0.96 IND +0.02 SENT +0.39 => score -0.041 HOLD (no edge) | +1 online upd
+2026-11-23 16:30:06 CST INFO    paperbot.bot: [ETH] candle 16:29 CST close $1716.29 | RSI 37.9 | P(up) 0.553 (online 0.515 / batch 0.590) | AI +0.35 IND -0.11 SENT +0.20 => score -0.137 HOLD (no edge) | +1 online upd
+2026-11-23 16:30:06 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:31:06 CST INFO    paperbot.bot: [BTC] candle 16:30 CST close $61238.52 | RSI 44.5 | P(up) 0.557 (online 0.547 / batch 0.567) | AI +0.38 IND -0.07 SENT +0.39 => score +0.046 HOLD (no edge) | +1 online upd
+2026-11-23 16:31:06 CST INFO    paperbot.bot: [ETH] candle 16:30 CST close $1716.62 | RSI 39.3 | P(up) 0.578 (online 0.521 / batch 0.635) | AI +0.52 IND -0.17 SENT +0.20 => score -0.014 HOLD (no edge) | +1 online upd
+2026-11-23 16:31:06 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:32:06 CST INFO    paperbot.bot: [BTC] candle 16:31 CST close $61259.01 | RSI 47.5 | P(up) 0.567 (online 0.567 / batch 0.567) | AI +0.44 IND -0.13 SENT +0.39 => score +0.109 HOLD (no edge) | +1 online upd
+2026-11-23 16:32:07 CST INFO    paperbot.bot: [ETH] candle 16:31 CST close $1717.07 | RSI 41.2 | P(up) 0.586 (online 0.527 / batch 0.646) | AI +0.58 IND -0.21 SENT +0.20 => score +0.072 HOLD (no edge) | +1 online upd
+2026-11-23 16:32:07 CST INFO    paperbot.bot: PORTFOLIO equity $100.00 (+0.00%) | cash $100.00 | realized $+0.0000 | fees $0.0000 | trades 0 | open: none
+2026-11-23 16:32:07 CST INFO    paperbot.bot: Reached --minutes limit, stopping.
+2026-11-23 16:32:07 CST INFO    paperbot.bot: Stopped. State saved.
